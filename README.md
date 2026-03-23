@@ -20,6 +20,9 @@ curl -sSL https://raw.githubusercontent.com/samyama-ai/graphrag-rs/main/install.
 Or build from source:
 
 ```bash
+# graphrag-rs depends on samyama-graph via relative path — clone both side by side
+mkdir -p graphrag-workspace && cd graphrag-workspace
+git clone https://github.com/samyama-ai/samyama-graph.git
 git clone https://github.com/samyama-ai/graphrag-rs.git
 cd graphrag-rs
 cargo build --release

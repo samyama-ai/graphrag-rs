@@ -66,6 +66,7 @@ fi
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
+git clone --depth 1 "https://github.com/samyama-ai/samyama-graph.git" "$TMPDIR/samyama-graph"
 git clone --depth 1 "https://github.com/${REPO}.git" "$TMPDIR/graphrag-rs"
 cd "$TMPDIR/graphrag-rs"
 cargo build --release
