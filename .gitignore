@@ -3,3 +3,4 @@ Cargo.lock
 *.sgsnap
 data/
 .env
+.mcp.json
