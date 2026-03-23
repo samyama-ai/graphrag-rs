@@ -56,15 +56,29 @@ This starts an MCP server over stdio. Add it to your assistant's config:
 }
 ```
 
-**Claude Code** (`~/.claude/settings.json`):
+**Claude Desktop** (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
 ```json
 {
   "mcpServers": {
     "graphrag": {
       "command": "graphrag-rs",
-      "args": ["serve"]
+      "args": ["--data-dir", "/path/to/your/data", "serve"]
     }
+  }
+}
+```
+
+> Restart Claude Desktop after editing. The graphrag tools will appear under the hammer icon.
+
+**Claude Code** (`.mcp.json` in your project directory):
+
+```json
+{
+  "graphrag": {
+    "type": "stdio",
+    "command": "graphrag-rs",
+    "args": ["--data-dir", "/path/to/your/data", "serve"]
   }
 }
 ```
