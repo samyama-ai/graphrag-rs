@@ -75,9 +75,12 @@ This starts an MCP server over stdio. Add it to your assistant's config:
 
 ```json
 {
-  "graphrag": {
-    "command": "graphrag-rs",
-    "args": ["--data-dir", "/path/to/your/data", "serve"]
+  "mcpServers": {
+    "graphrag": {
+      "type": "stdio",
+      "command": "graphrag-rs",
+      "args": ["--data-dir", "/path/to/your/data", "serve"]
+    }
   }
 }
 ```
