@@ -103,6 +103,7 @@ async fn search_entities(gm: &GraphManager, args: &Value) -> Result<Value> {
 async fn find_relationships(gm: &GraphManager, args: &Value) -> Result<Value> {
     let entity = args["entity"]
         .as_str()
+        .or_else(|| args["entity_name"].as_str())
         .ok_or_else(|| anyhow::anyhow!("Missing 'entity' parameter"))?;
     let escaped = entity.replace('\'', "\\'");
 
@@ -118,6 +119,7 @@ async fn find_relationships(gm: &GraphManager, args: &Value) -> Result<Value> {
 async fn traverse_neighbors(gm: &GraphManager, args: &Value) -> Result<Value> {
     let entity = args["entity"]
         .as_str()
+        .or_else(|| args["entity_name"].as_str())
         .ok_or_else(|| anyhow::anyhow!("Missing 'entity' parameter"))?;
     let depth = args["depth"].as_u64().unwrap_or(2).min(4);
     let escaped = entity.replace('\'', "\\'");
